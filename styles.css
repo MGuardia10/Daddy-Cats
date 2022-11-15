@@ -1,0 +1,993 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* variables de colores */
+:root{
+    --white: #fff;
+    --grey-fondooscuro: #A1A1A6;
+    --grey-fondoclaro: #858587;
+    --background-black: #070707;
+    --purple: #DF3DAB;
+}
+/* Barra de navegación */
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track{
+    border: 5px solid #2c3528;
+    box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, .5);
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(
+        45deg, #900CE8, #F94E9B
+    );
+    border-radius:50px;
+}
+/* ----------------------------------------------------------- */
+/* --------------ESTILOS GENERALES --------------------------- */
+/* ----------------------------------------------------------- */
+body{
+    font-family: 'Share Tech Mono', monospace;
+}
+/* video de fondo espacio */
+.video-fondo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* botones primario y secundario */
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.btn-ghost{
+    position: relative;
+    border: 2px solid var(--purple);
+    padding: 15px 40px;
+    color: var(--white);
+    text-transform: uppercase;
+    
+    text-decoration: none;
+    transition: color 0.5s, background 0.5s;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, .25);
+}
+.btn-ghost.primary{
+    background-color: var(--purple);
+    letter-spacing: 1px;
+}
+.btn-ghost.primary:hover{
+    background-color: transparent;
+    color: var(--purple);
+}
+.btn-ghost.primary i{
+    font-size: 16px;
+}
+.btn-ghost.secundary{
+    background-color: transparent;
+    color: var(--purple);
+    letter-spacing: 1px;
+}
+  .btn-ghost.secundary:hover{
+    background-color: var(--purple);
+    color: var(--white);
+}
+/* textos */
+h1{
+    color: #E6E6E6;
+    font-weight: 400;
+    font-size: 100px;
+    letter-spacing: 15px;
+    text-align: center;
+
+    margin: 30px 0px 15px 0px;
+}
+h2{
+    font-size: 70px;
+    text-align: center;
+    text-transform: uppercase;
+}
+h2 span{
+    color: transparent;
+    background-image: linear-gradient(to right, #900CE8, #F94E9B);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+
+/* ----------------------------------------------------------- */
+/* --------------MENU DE NAVEGACION Y PORTADA----------------- */
+/* ----------------------------------------------------------- */
+header{
+    width: 100%;
+    height: 100vh;
+}
+/* contenido de la portada */
+.portada{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-portada{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 40px;
+}
+.contenido-portada img{
+    width: 250px;
+    height: 250px;
+}
+
+.texto-portada{
+    color: #5C5C5C;
+    font-size: 18px;
+    text-align: center;
+}
+.contenido-portada .link-kitty{
+    text-decoration: none;
+    font-style: italic;
+    color: #5C5C5C;
+}
+.contenido-portada .link-kitty:hover{
+    text-decoration: underline;
+    color: var(--purple);
+}
+/* SVG para hacer scroll en Y */
+.link-quienes-somos{
+    position: absolute;
+    bottom: 40px;
+    transition: 0.5s;
+}
+.link-quienes-somos:hover{
+    transform: translateY(-15px);
+}
+.fa-angles-down{
+    color: var(--white);
+    font-size: 30px;
+    padding: 10px;
+}
+
+/* MENU */
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 8vh;
+    display: flex;
+    transform: translateY(-100px);
+    transition: all 0.7s ease;
+    z-index: 100;
+}
+.contenedor-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+}
+.logo-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.logo-menu img{
+    width: 45px;
+    height: 45px;
+}
+.logo-menu a{
+    text-decoration: none;
+    padding-left: 15px;
+}
+.logo-menu p{
+    letter-spacing: 2px;
+    font-size: 17px;
+    color: var(--white);
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    margin: 20px;
+}
+.menu li a{
+    padding: 10px 0px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 18px;
+    transition: 0.5s;
+}
+.menu li a:hover{
+    text-decoration: underline;
+    color: var(--purple);
+}
+.menu li a span{
+    display: none;
+}
+.menu li a img{
+    transition: 0.5s;
+    width: 42px;
+}
+.menu li a i{
+    font-size: 24px;
+    transition: 0.5s;
+}
+.menu li a i:hover, .menu li a img:hover{
+    transform: translateY(-3px);
+    color: var(--purple);
+}
+
+/* MENU - CLASE ACTIVA */
+.nav.active{
+    background: #1F2023;
+    transform: translateY(0);
+}
+/* menu hamburguesa */
+#hamburguer{
+    color: var(--white);
+    font-size: 22px;
+    margin-right: 25px;
+    line-height: 60px;
+    cursor: pointer;
+    display: none;
+}
+/* ----------------------------------------------------------- */
+/* ------------------QUIENES SOMOS---------------------------- */
+/* ----------------------------------------------------------- */
+#quienes-somos{
+    position: relative;
+    height: 90vh;
+
+    background-color: var(--background-black);
+}
+.contenedor{
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
+.contenido-quienes-somos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+.contenido-quienes-somos p{
+    max-width: 60%;
+    text-align: center;
+    font-size: 20px;
+    color: var(--grey-fondooscuro);
+    margin-top: 60px;
+}
+.contenido-quienes-somos p span{
+    color: var(--white);
+}
+
+
+/* ----------------------------------------------------------- */
+/* ------------------CARRUSEL DE IMAGENES--------------------- */
+/* ----------------------------------------------------------- */
+.carousel{
+    position: relative;
+    min-height: 20vh;
+    background-color: var(--background-black);
+}
+.swiper{
+    width: 100%;
+}
+.swiper-wrapper{
+    max-width: 300px;
+    margin-bottom: 75px;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+}
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+}
+/* ----------------------------------------------------------- */
+/* -------------------------UTILIDAD-------------------------- */
+/* ----------------------------------------------------------- */
+#utilidad{
+    position: relative;
+    height: 100vh;
+    background-color: var(--white);
+}
+/* seccion izq (imagen) */
+.izquierda{
+    position: absolute;
+    left: -30px;
+    bottom: -8px;
+    overflow: hidden;
+    width: 500px;
+}
+.izquierda img{
+    width: 100%;
+}
+/* seccion drcha (titulo y texto) */
+.derecha{
+    position: absolute;
+    width: 50%;
+    top: 20%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.derecha p{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    color: var(--grey-fondoclaro);
+}
+.derecha p span{
+    color: var(--background-black);
+}
+/* ----------------------------------------------------------- */
+/* ------------------SERVICIOS-------------------------------- */
+/* ----------------------------------------------------------- */
+#servicios{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #070707;
+}
+.contenido-servicios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    margin: 100px 0px;
+}
+.contenido-servicios p{
+    max-width: 65%;
+    text-align: center;
+    font-size: 20px;
+    color: var(--grey-fondooscuro);
+    margin-top: 30px;
+}
+.contenido-servicios p span{
+    color: var(--white);
+}
+/* lista de servicios */
+.lista-servicios{
+    margin-top: 30px;
+    position: relative;
+
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+}
+.elemento-lista{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    background-color: #2C2C2C;
+    border-radius: 5px;
+}
+.elemento-lista i{
+    font-size: 35px;
+    margin-top: 20px;
+}
+.elemento-lista p{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------- */
+/* ------------------FREQUENTLY ASKED QUESTIONS--------------- */
+/* ----------------------------------------------------------- */
+/* titulo seccion */
+#faq{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+}
+.titulo-faq{
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+/* inicio de preguntas */
+.preguntas{
+    width: 80%;
+    padding-top: 20px;
+}
+.contenedor-preguntas{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+.contenedor-pregunta{
+    background-color: #e5e5e8;
+    padding: 20px;
+    border: 2px solid transparent;
+    border-radius: 7px;
+    overflow: hidden;
+    transition: .3s ease all;
+    cursor: pointer;
+}
+.contenedor-pregunta:hover{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .25);
+}
+.contenedor-pregunta.activa{
+    border: 2px solid var(--black);
+}
+/* PREGUNTAS individuales */
+.pregunta{
+    font-weight: 700;
+    color: var(--black);
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pregunta img{
+    width: 14px;
+}
+.respuesta{
+    color: var(--grey-fondoclaro);
+    line-height: 30px;
+    max-height: 0;
+    opacity: 0;
+    transition: .3s ease all;
+}
+.contenedor-pregunta.activa .respuesta{
+    opacity: 1;
+    margin-top: 20px;
+}
+.contenedor-pregunta .respuesta a{
+    display: none;
+    text-decoration: none;
+    color: var(--purple);
+}
+.contenedor-pregunta.activa .respuesta a{
+    display: inline;
+}
+.contenedor-pregunta.activa .respuesta a:hover{
+    text-decoration: underline;
+}
+.contenedor-pregunta.activa img{
+    transform: rotate(45deg);
+}
+
+/* ----------------------------------------------------------- */
+/* ------------------CONTACTO--------------------------------- */
+/* ----------------------------------------------------------- */
+#contacto{
+    position: relative;
+    height: 115vh;
+    background-color: #070707;
+}
+.contenido-contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+.contenido-contacto p{
+    max-width: 65%;
+    text-align: center;
+    font-size: 20px;
+    color: var(--grey-fondooscuro);
+    margin-top: 20px;
+}
+.contenido-contacto p span{
+    color: var(--white);
+}
+/* form para enviar mensajes y recibir al correo*/
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #2C2C2C;
+}
+form input{
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border: 1px solid #2C2C2C;
+    font-size: 16px;
+    font-family: 'Share Tech Mono', monospace;
+}
+form textarea{
+    resize: none;
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border: 1px solid #2C2C2C;
+    font-size: 16px;
+    font-family: 'Share Tech Mono', monospace;
+}
+form button{
+    margin-top: 20px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* ----------------------------------------------------------- */
+/* -------------------------FOOTER---------------------------- */
+/* ----------------------------------------------------------- */
+footer{
+    width: 100%;
+    height: 35vh;
+    position: relative;
+}
+.contenido-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* redes sociales */
+.rrss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rrss a{
+    margin: 20px;
+}
+.fa-footer{
+    font-size: 40px;
+    color: #fff;
+    transition: 0.5s;
+}
+.rrss a img{
+    width: 60px;
+    transition: 0.5s;
+}
+.fa-footer:hover, .rrss a img:hover{
+    color: var(--purple);
+    transform: translateY(-10px);
+}
+/* condiciones legales */
+.condiciones-legales{
+    margin-top: 40px;
+    text-align: center;
+}
+.terminos{
+    border-right: 2px solid white;
+    padding-right: 10px;
+    margin-right: 5px;
+    color: var(--purple);
+    text-decoration: none;
+}
+.privacidad{
+    color: var(--purple);
+    text-decoration: none;
+}
+.cookies{
+    border-left: 2px solid white;
+    padding-left: 10px;
+    margin-left: 5px;
+
+    color: var(--purple);
+    text-decoration: none;
+}
+.terminos:hover, .privacidad:hover, .cookies:hover{
+    text-decoration: underline;
+}
+/* copyright */
+.copyright{
+    margin-top: 50px;
+    color: var(--white);
+    font-size: 18px;
+}
+/* marca de autor */
+.autor{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    
+    background-color: rgb(19, 18, 18);
+    padding: 10px;
+    color: var(--white);
+    font-size: 14px;
+}
+.autor a{
+    text-decoration: none;
+    color: var(--purple);
+}
+.autor a:hover{
+    text-decoration: underline;
+}
+
+
+/* ----------------------------------------------------------- */
+/* --------------RESPONSIVE DESIGN---------------------------- */
+/* ----------------------------------------------------------- */
+
+/* 1280 - menu  */
+@media screen and (max-width: 1250px){
+    /* menu tamaño */
+    .logo-menu img{
+        width: 35px;
+        height: 35px;
+    }
+    .logo-menu a{
+        padding-left: 10px;
+    }
+    .logo-menu p{
+        font-size: 15px;
+    }
+    .menu li{
+        margin: 14px;
+    }
+    .menu li a{
+        font-size: 15px;
+    }
+    .menu li a img{
+        width: 35px;
+    }
+    .menu li a i{
+        font-size: 20px;
+    }    
+}
+/* 1024 - textos y todo mas pequeño */
+@media screen and (max-width: 1024px){
+    /* menu hamburguesa responsive */
+    #hamburguer{
+        display: flex;
+    }
+    .nav{
+        min-height: 10vh;
+    }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 10vh;
+        left: -100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        transition: all .5s;
+        background: var(--background-black);
+    }
+    .menu li{
+        width: 85%;
+        padding-bottom: 10px;
+        margin: 20px auto;
+        border-bottom: 1px solid #a7a7ad;
+    }
+    .menu li a span{
+        display: unset;
+        margin-right: 10px;
+    }
+    .menu li a img{
+        width: 18px;
+    }
+    .menu li a i{
+        font-size: 15px;
+    }
+    /* logo */
+    .contenedor-menu{
+        width: 100%;
+    }
+    .logo-menu{
+        margin-left: 15px;
+    }
+    /* hacer funcionar al menu */
+    .menu.show{
+        left: 0;
+    }
+    /* textos generales */
+    h1{
+        font-size: 90px;
+    }
+    h2{
+        font-size: 60px;
+    }
+    /* quienes somos */
+    .contenido-quienes-somos p{
+        max-width: 70%;
+        font-size: 20px;
+        margin-top: 50px;
+    }
+    /* utilidades */
+    .izquierda{
+        width: 375px;
+    }
+    .derecha{
+        width: 70%;
+        right: 0%;
+    }
+    .derecha p{
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    /* servicios */
+    .contenido-servicios p{
+        max-width: 90%;
+    }
+    /* faq */
+    .pregunta{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    /* generales */
+    h1{
+        font-size: 70px;
+    }
+    h2{
+        font-size: 50px;
+    }
+    /* quienes somos */
+    .contenido-quienes-somos p{
+        max-width: 100%;
+        text-align: center;
+        font-size: 18px;
+        margin-top: 50px;
+    }
+    /* utilidades */
+    .izquierda{
+        width: 300px;
+        left: -20px;
+    }
+    .derecha{
+        position: relative;
+        width: 100%;
+        top: -100px;
+    }
+    .derecha p{
+        font-size: 18px;
+    }
+    /* contacto */
+    .contenido-contacto p{
+        max-width: 90%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    /* generales */
+    h1{
+        font-size: 55px;
+    }
+    h2{
+        font-size: 40px;
+    }
+    /* botones */
+    .botones{
+        margin-top: 50px;
+    }
+    .btn-ghost{
+        padding: 15px 30px;
+        font-size: 0.9em;
+    }
+    /* portada */
+    .texto-portada{
+        font-size: 14px;
+    }
+    /* carrousel de imagenes */
+    .swiper-wrapper{
+        max-width: 250px;
+    }
+    /* lista de servicios */
+    .lista-servicios{
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+    }
+    /* form para enviar mensajes y recibir al correo*/
+    form{
+        width: 400px;
+    }
+    /* footer */
+    .fa-footer{
+        font-size: 30px;
+    }
+    .rrss a img{
+        width: 50px;
+    }
+    .condiciones-legales{
+        margin-top: 30px;
+    }
+    .copyright{
+    margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    /* botones */
+    .botones{
+        flex-direction: column;
+    }
+    /* portada */
+    h1{
+        font-size: 35px;
+        letter-spacing: 15px;
+    }
+    .texto-portada{
+        font-size: 10px;
+    }
+    /* quienes somos */
+    .contenido-quienes-somos p{
+        font-size: 16px;
+    }
+    /* utildiades */
+    .derecha p{
+        font-size: 16px;
+    }
+    .izquierda{
+        width: 250px;
+        left: 0px;
+    }
+    /* servicios */
+    .contenido-servicios p{
+        max-width: 100%;
+        font-size: 16px;
+    }
+    /* faq */
+    .pregunta{
+        font-size: 16px;
+    }
+    .respuesta{
+        font-size: 14px;
+    }
+    /* contacto */
+    .contenido-contacto p{
+        max-width: 100%;
+        font-size: 16px;
+    }
+    form{
+        width: 350px;
+        padding: 15px;
+    }
+    form input{
+        margin: 5px 0px;
+    }
+    form textarea{
+        margin: 5px 0px;
+    }
+    form button{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 375px){
+    /* generales */
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    /* quienes somos */
+    .contenido-quienes-somos p{
+        font-size: 14px;
+    }
+    /* carrousel de imagenes */
+    .swiper-wrapper{
+        max-width: 200px;
+    }
+    /* utilidades */
+    .derecha p{
+        font-size: 14px;
+    }
+    /* servicios */
+    .contenido-servicios p{
+        font-size: 14px;
+    }
+    /* faq */
+    .pregunta{
+        font-size: 14px;
+    }
+    .respuesta{
+        font-size: 12px;
+    }
+    /* contacto */
+    .contenido-contacto p{
+        max-width: 100%;
+        font-size: 14px;
+    }
+    /* form */
+    form{
+        width: 270px;
+        padding: 15px;
+    }
+    /* footer */
+    .fa-footer{
+        font-size: 24px;
+    }
+    .rrss a img{
+        width: 40px;
+    }
+    .condiciones-legales{
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .copyright{
+    font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 300px){
+    /* generales */
+    h1{
+        font-size: 20px;
+    }
+    /* portada */
+    .texto-portada{
+        font-size: 9px;
+    }
+    /* form de contacto */
+    form{
+        width: 225px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
